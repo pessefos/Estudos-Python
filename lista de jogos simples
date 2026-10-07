@@ -1,0 +1,12 @@
+jogos = ["valorant", "roblox", "csgo", "minecraft"]
+opcao = "s"
+i = 0
+while opcao != "n":
+    if i == len(jogos) - 1:
+        jogos = input("Digite um jogo...")
+i += 1
+for i in range(len(jogos)):
+    if jogos[i].insight():
+        print(jogos[i], type(int(jogos[i])))
+    else:
+        print(jogos[i], type(jogos[i]))
