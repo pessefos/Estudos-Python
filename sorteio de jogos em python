@@ -1,0 +1,41 @@
+# Lista de jogos para jogar
+jogos = ["valorant", "outlast", "overwatch", "arc riders", "fifa", "csgo", "gta v", "minecraft", "the last of us"]
+
+print("--- Jogos na Lista Inicial ---")
+for posicao, item in enumerate(jogos):
+    print(f"Posição: {posicao} | Jogo: {item} | Tipo: {type(item).__name__}")
+
+# 1. Input (Entrada pelo usuário)
+novo_jogo = input("\nQualquer Tecla para sortear ou digite para adicionar um jogo: ")
+
+# 2. Adicionar o jogo à lista sem usar append (soma de listas)
+jogos = jogos + [novo_jogo]
+
+print("\n--- Lista de Jogos Atualizada ---")
+for posicao, item in enumerate(jogos):
+    print(f"Posição: {posicao} | Jogo: {item}")
+
+# 3. Laço de Repetição (for) e Condicional (if / else)
+print("\n--- Análise dos Nomes dos Jogos ---")
+for jogo in jogos:
+    # Estrutura condicional para verificar o tamanho do nome do jogo
+    if len(jogo) > 8:
+        print(f"O jogo '{jogo}' tem um nome longo.")
+    else:
+        print(f"O jogo '{jogo}' tem um nome curto.")
+
+# 4. Sorteio aleatório com probabilidades (biblioteca random)
+import random
+
+# Cria uma lista de chances dinâmica com base na quantidade total de jogos
+chances = [25] * len(jogos)
+
+# Realiza o sorteio baseado nos pesos
+jogo_sorteado = random.choices(jogos, weights=chances, k=1)[0]
+
+print(f"\n🎮 Jogo sorteado para jogar hoje: {jogo_sorteado}")
+
+# 5. Embaralhar a lista final
+random.shuffle(jogos)
+print("\nLista embaralhada:")
+print(jogos)
